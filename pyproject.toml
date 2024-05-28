@@ -11,7 +11,7 @@ dependencies = []
 [project.optional-dependencies]
 test = ["coverage[toml]"]
 
-[project_scripts]
+[project.scripts]
 wikiapp = "wikiapp.console:main"
 
 [build-system]
@@ -27,6 +27,7 @@ wikiapp = { path = ".", editable = true }
 
 [tool.pixi.tasks]
 program = "python wikiapp/console.py"
+"—feature" = "lint format lint “ruff check”"
 
 [tool.pixi.dependencies]
 click = ">=8.1.7,<8.2"
@@ -50,12 +51,68 @@ click = ">=8.1.3,<8.2"
 python = "3.10.*"
 requests = ">=2.23.0,<2.33"
 
+[tool.pixi.feature.lintformat.dependencies]
+ruff = ">=0.4.5,<0.5"
+pre-commit = ">=3.7.1,<3.8"
+
+[tool.pixi.feature.lintformat.tasks]
+lint = "ruff format"
+format = "ruff format"
+
+[tool.pixi.feature.lint.tasks]
+format = "lint \"ruff format\""
+
+[tool.pixi.feature.typing.dependencies]
+mypy = ">=0.812,<1.11"
+
+[tool.pixi.feature.typing.tasks]
+typing = "mypy ."
+
 [tool.pixi.environments]
-default = { solve-group = "default" }
-test = { features = ["test"], solve-group = "default" }
-py310test = { features = ["test", "py310"], solve-group = "py310" }
+default = { solve-group = "default" } #includes defualut
+test = { features = ["test"], solve-group = "default" } #includes default, test
+dev = { features = ["test", "lintformat", "typing"], solve-group = "default" }
+py310test = { features = [
+    "test",
+    "py310",
+], solve-group = "py310" } # includes default, test, py310
 py311test = { features = ["test", "py311"], solve-group = "py311" }
 
 [tool.pyright]
 venvPath = "."
-venv = ".pixi/envs/test"
+venv = ".pixi/envs/dev"
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    "W",
+    "F",
+    "C",
+    "B",
+    #isor
+    "I",
+    #bandit
+    "S",
+    "ANN",
+]
+ignore = [
+    #bandit
+    "S101",   #dont warn on asserts
+    "E203",   #dont complain about whitespace before:
+    "ANN401",
+]
+
+mccabe.max-complexity = 10
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+ignore-fully-untyped = true
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = ["requests"]
+ignore_missing_imports = true
