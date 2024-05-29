@@ -34,7 +34,7 @@ def test_main_invokes_requests_get(runner: CliRunner, mock_requests_get: Mock) -
 
 def test_main_users_correct_url(runner: CliRunner, mock_requests_get: Mock) -> None:
     runner.invoke(console.main)
-    print("<<<", mock_requests_get.call_args)
+    print("<<<", mock_requests_get)
     assert mock_requests_get.call_args[0] == (
         "https://en.wikipedia.org/api/rest_v1/page/random/summary",
     )
@@ -42,6 +42,7 @@ def test_main_users_correct_url(runner: CliRunner, mock_requests_get: Mock) -> N
 
 def test_main_succeeds(runner: CliRunner) -> None:
     result = runner.invoke(console.main)
+    print(">>>", result)
     assert result.exit_code == 0
 
 
@@ -59,3 +60,9 @@ def test_main_prints_message_on_request_error(
     mock_requests_get.side_effect = requests.RequestException
     result = runner.invoke(console.main)
     assert "Error" in result.output
+
+
+@pytest.mark.e2e
+def test_main_suceeds_in_production(runner: CliRunner) -> None:
+    result = runner.invoke(console.main)
+    assert result.exit_code == 0
