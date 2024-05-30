@@ -16,11 +16,14 @@ from wikiapp.wikipedia import random_page
     show_default=True,
 )
 @click.version_option(version=__version__)
-def main(language: str) -> None:
+def main(language: str) -> None:  # this is a console function so returns nothing
+    """
+    this is the console interface to 'random_page' function in wikipedia.py
+    """
     """The ultramodern Python project."""
-    data = random_page(language=language)
-    title = data["title"]
-    extract = data["extract"]
+    page = random_page(language=language)
+    title = page.title
+    extract = page.extract
     click.secho(title, fg="green")
     click.echo(textwrap.fill(extract))
 

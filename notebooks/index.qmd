@@ -1,0 +1,30 @@
+---
+title: Wikiapp Docs
+---
+
+Welcome to the documentation for Wikiapp!
+
+This library will let you get random wikipedia page experts, in any language.
+
+Yeah we know it does not do much! But it is a start
+
+'''bash
+❯ wikiapp
+Chortkiv offensive
+The Chortkiv offensive also known as June offensive was one of the
+most successful counteroffensive military operations of the Ukrainian
+Galician Army (UHA) against the Polish Army during the Polish-
+Ukrainian War in 1918–1919. Around 19,000–20,000 Ukrainians pushed
+back the Poles along the entire front of the 39,000-strong Polish
+Army, reinforced by the French Third Republic.
+
+❯ wikiapp --language fr
+Valéria Gyenge
+Valéria Gyenge, née le 3 avril 1933 à Budapest, est une nageuse
+hongroise, pratiquant la nage libre.
+
+❯ wikiapp --language el
+Κομητεία Γκότλαντ
+Η Κομητεία Γκότλαντ είναι κομητεία της Σουηδίας. Το Γκότλαντ βρίσκεται
+στη Βαλτική Θάλασσα στα ανατολικά του Έλαντ, και είναι το μεγαλύτερο
+νησί της Σουηδίας.

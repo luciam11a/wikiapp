@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "wikipedia.html",
+    "href": "wikipedia.html",
+    "title": "Wikipedia Module",
+    "section": "",
+    "text": "from wikiapp.wikipedia import random_page, Page\nfrom nbdev import show_doc",
+    "crumbs": [
+      "Wikipedia Module"
+    ]
+  },
+  {
+    "objectID": "wikipedia.html#examples",
+    "href": "wikipedia.html#examples",
+    "title": "Wikipedia Module",
+    "section": "Examples",
+    "text": "Examples\n\npage = random_page()\nprint(\"TITLE\", page.title)\nprint(\"EXTRACT\", page.extract)\n\nTITLE Goran Paskaljević\nEXTRACT Goran Paskaljević was a Serbian and former Yugoslav film director.\n\n\nYou can change the language you want:\n\npage = random_page(language=\"fr\")\nprint(\"TITLE\", page.title)\nprint(\"EXTRACT\", page.extract)\n\nTITLE Circuit Het Nieuwsblad féminin\nEXTRACT Le Circuit Het Nieuwsblad féminin est une course cycliste féminine belge. Créé en 2006, il fait partie du calendrier de l'Union cycliste internationale en catégorie 1.2. À partir de 2016, il est classé en 1.1. La course est longue d'environ 120 kilomètres, son départ est à Deerlijk et son arrivée se situe à Deinze. C'est la version féminine du Circuit Het Nieuwsblad.",
+    "crumbs": [
+      "Wikipedia Module"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Wikiapp Docs",
+    "section": "",
+    "text": "Welcome to the documentation for Wikiapp!\nThis library will let you get random wikipedia page experts, in any language.\nYeah we know it does not do much! But it is a start\n’’’bash ❯ wikiapp Chortkiv offensive The Chortkiv offensive also known as June offensive was one of the most successful counteroffensive military operations of the Ukrainian Galician Army (UHA) against the Polish Army during the Polish- Ukrainian War in 1918–1919. Around 19,000–20,000 Ukrainians pushed back the Poles along the entire front of the 39,000-strong Polish Army, reinforced by the French Third Republic.\n❯ wikiapp –language fr Valéria Gyenge Valéria Gyenge, née le 3 avril 1933 à Budapest, est une nageuse hongroise, pratiquant la nage libre.\n❯ wikiapp –language el Κομητεία Γκότλαντ Η Κομητεία Γκότλαντ είναι κομητεία της Σουηδίας. Το Γκότλαντ βρίσκεται στη Βαλτική Θάλασσα στα ανατολικά του Έλαντ, και είναι το μεγαλύτερο νησί της Σουηδίας.",
+    "crumbs": [
+      "Wikiapp Docs"
+    ]
+  },
+  {
+    "objectID": "console.html",
+    "href": "console.html",
+    "title": "Console Module",
+    "section": "",
+    "text": "from wikiapp.console import main\nfrom nbdev import show_doc \nfrom click.testing import CliRunner\nrunner = CliRunner()",
+    "crumbs": [
+      "Console Module"
+    ]
+  },
+  {
+    "objectID": "console.html#examples",
+    "href": "console.html#examples",
+    "title": "Console Module",
+    "section": "Examples",
+    "text": "Examples\n\nrunner.invoke(main)\n\n&lt;Result okay&gt;",
+    "crumbs": [
+      "Console Module"
+    ]
+  }
+]

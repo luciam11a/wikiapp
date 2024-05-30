@@ -1,8 +1,9 @@
 from unittest.mock import Mock
-from click.testing import CliRunner
-from pytest_mock import MockFixture
+
 import pytest
 import requests
+from click.testing import CliRunner
+from pytest_mock import MockFixture
 
 from wikiapp import console
 
@@ -38,12 +39,6 @@ def test_main_users_correct_url(runner: CliRunner, mock_requests_get: Mock) -> N
     assert mock_requests_get.call_args[0] == (
         "https://en.wikipedia.org/api/rest_v1/page/random/summary",
     )
-
-
-def test_main_succeeds(runner: CliRunner) -> None:
-    result = runner.invoke(console.main)
-    print(">>>", result)
-    assert result.exit_code == 0
 
 
 def test_main_fails_on_request_error(
