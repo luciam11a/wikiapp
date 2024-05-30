@@ -13,10 +13,9 @@ def test_random_page_uses_language(mock_requests_get: Mock) -> None:
 
 
 @pytest.mark.e2e
-def test_random_page_returns_dictionary() -> None:
+def test_random_page_returnspage_in_dictionary() -> None:
     page = wikipedia.random_page()
-    assert "title" in page
-    assert "extract" in page
+    assert isinstance(page, wikipedia.Page)
 
 
 def test_random_page_handles_validation_error(mock_requests_get: Mock) -> None:
